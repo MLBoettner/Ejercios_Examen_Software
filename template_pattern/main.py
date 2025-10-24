@@ -1,7 +1,7 @@
 # main.py
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from factura.factura_factory import crear_factura
+from template_pattern.factura.factura_factory import crear_factura
 import json
 import os
 
