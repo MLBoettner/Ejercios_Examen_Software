@@ -1,6 +1,4 @@
-# ==== Librerías base del proyecto ====
 fastapi
 uvicorn[standard]
-
-# ==== Librerías estándar usadas en el ejemplo ====
 pydantic
+pytest
