@@ -1,5 +1,5 @@
 # descuentos/consumer_discount.py
-from .base_discount import BaseDiscount
+from template_pattern.descuentos.base_discount import BaseDiscount
 
 class ConsumerDiscount(BaseDiscount):
     def apply_discount(self, amount):

@@ -1,4 +1,4 @@
-from .base_discount import BaseDiscount
+from template_pattern.descuentos.base_discount import BaseDiscount
 
 class StudentDiscount(BaseDiscount):
     def apply_discount(self, amount):

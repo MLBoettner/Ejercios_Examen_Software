@@ -1,10 +1,10 @@
 # factura/factura_factory.py
-from .factura_A import FacturaA
-from .factura_B import FacturaB
-from descuentos.student_discount import StudentDiscount
-from descuentos.consumer_discount import ConsumerDiscount
-from impuestos.iva_21 import IVA21
-from impuestos.sin_iva import SinIVA
+from template_pattern.factura.factura_A import FacturaA
+from template_pattern.factura.factura_B import FacturaB
+from template_pattern.descuentos.student_discount import StudentDiscount
+from template_pattern.descuentos.consumer_discount import ConsumerDiscount
+from template_pattern.impuestos.iva_21 import IVA21
+from template_pattern.impuestos.sin_iva import SinIVA
 
 def crear_factura(json_path, tipo_cliente):
     """

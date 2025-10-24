@@ -1,4 +1,4 @@
-from .base_tax import BaseTax
+from template_pattern.impuestos.base_tax import BaseTax
 
 class SinIVA(BaseTax):
     def apply_tax(self, amount):

@@ -2,9 +2,9 @@
 import os
 import json
 import unittest
-from factura.factura_factory import crear_factura
-from factura.factura_A import FacturaA
-from factura.factura_B import FacturaB
+from template_pattern.factura.factura_factory import crear_factura
+from template_pattern.factura.factura_A import FacturaA
+from template_pattern.factura.factura_B import FacturaB
 
 
 class TestFacturacion(unittest.TestCase):

@@ -1,5 +1,5 @@
 # factura/factura_A.py
-from .base_factura import BaseFactura
+from template_pattern.factura.base_factura import BaseFactura
 
 class FacturaA(BaseFactura):
     """
