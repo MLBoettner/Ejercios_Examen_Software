@@ -1,9 +1,9 @@
 name: CD Release Pipeline
 
 on:
-  create:
+  push:
     tags:
-      - 'v*.*.*' # Trigger cuando se crea un tag que comienza con 'v' (ej. v1.0.0)
+      - 'v*.*.*'
 
 jobs:
   create-github-release:
