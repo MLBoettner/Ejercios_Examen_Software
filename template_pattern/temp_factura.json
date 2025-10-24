@@ -1,0 +1,16 @@
+{
+    "cliente": "Mar\u00eda L\u00f3pez",
+    "tipo": "consumidor_final",
+    "productos": [
+        {
+            "descripcion": "Monitor",
+            "cantidad": 1,
+            "precio_unitario": 300.0
+        },
+        {
+            "descripcion": "Cable HDMI",
+            "cantidad": 2,
+            "precio_unitario": 15.0
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "cliente": "Juan Pérez",
+    "tipo": "responsable_inscripto",
+    "productos": [
+      {"descripcion": "Laptop", "cantidad": 1, "precio_unitario": 850.0},
+      {"descripcion": "Mouse", "cantidad": 2, "precio_unitario": 20.0}
+    ]
+  },
+  {
+    "cliente": "María López",
+    "tipo": "consumidor_final",
+    "productos": [
+      {"descripcion": "Monitor", "cantidad": 1, "precio_unitario": 300.0},
+      {"descripcion": "Cable HDMI", "cantidad": 2, "precio_unitario": 15.0}
+    ]
+  }
+]
