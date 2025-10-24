@@ -1,30 +1,58 @@
 # main.py
-import os
-import json
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
 from factura.factura_factory import crear_factura
+import json
+import os
 
-def main():
-    print("=== Generando facturas automáticamente desde JSON ===\n")
+app = FastAPI(title="API de Facturación", version="1.0")
 
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(base_dir, "orden.json")
+# Modelo de entrada con Pydantic
+class Producto(BaseModel):
+    descripcion: str
+    cantidad: int
+    precio_unitario: float
 
-    # Leer lista de facturas
-    with open(json_path, "r", encoding="utf-8") as f:
-        facturas_data = json.load(f)
+class Orden(BaseModel):
+    cliente: str
+    tipo: str
+    productos: list[Producto]
 
-    # Recorrer cada objeto de la lista
-    for i, data in enumerate(facturas_data, start=1):
-        tipo_cliente = data.get("tipo")
-        print(f"\n--- Procesando factura #{i} ({tipo_cliente}) ---\n")
 
-        # Crear archivo temporal por cada factura
-        temp_path = os.path.join(base_dir, "temp_factura.json")
-        with open(temp_path, "w", encoding="utf-8") as tmp:
-            json.dump(data, tmp, indent=4)
+@app.get("/")
+def root():
+    return {"mensaje": "Bienvenido a la API de Facturación"}
 
-        factura = crear_factura(temp_path, tipo_cliente)
-        factura.generar_factura()
 
-if __name__ == "__main__":
-    main()
+@app.post("/facturar")
+def generar_factura(orden: Orden):
+    """
+    Recibe una orden JSON, detecta el tipo de cliente,
+    crea la factura adecuada y devuelve el total.
+    """
+    try:
+        # Guardar temporalmente el JSON recibido
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        temp_json = os.path.join(base_dir, "orden_temp.json")
+
+        with open(temp_json, "w", encoding="utf-8") as f:
+            json.dump(orden.dict(), f, indent=4)
+
+        # Crear la factura adecuada (Factory Method)
+        factura = crear_factura(temp_json, orden.tipo)
+
+        # Ejecutar el proceso completo (Template Method)
+        total = factura.generar_factura()
+
+        # Devolver respuesta en JSON
+        return {
+            "cliente": orden.cliente,
+            "tipo_factura": orden.tipo,
+            "total_final": total,
+            "status": "Factura generada correctamente"
+        }
+
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error interno: {e}")

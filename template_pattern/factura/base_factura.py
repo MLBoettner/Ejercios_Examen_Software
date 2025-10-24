@@ -23,6 +23,7 @@ class BaseFactura(ABC):
         total = self.tax_strategy.apply_tax(subtotal_desc)
         self.exportar_factura(total)
         self.notificar_cliente()
+        return total 
 
     # === PASOS ABSTRACTOS ===
     @abstractmethod

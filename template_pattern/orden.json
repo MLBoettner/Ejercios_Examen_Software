@@ -1,6 +1,6 @@
 [
   {
-    "cliente": "Juan Pérez",
+    "cliente": "Juan Perez",
     "tipo": "responsable_inscripto",
     "productos": [
       {"descripcion": "Laptop", "cantidad": 1, "precio_unitario": 850.0},
@@ -8,7 +8,7 @@
     ]
   },
   {
-    "cliente": "María López",
+    "cliente": "Maria Lopez",
     "tipo": "consumidor_final",
     "productos": [
       {"descripcion": "Monitor", "cantidad": 1, "precio_unitario": 300.0},

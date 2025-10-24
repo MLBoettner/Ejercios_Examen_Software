@@ -27,3 +27,4 @@ class FacturaB(BaseFactura):
     def exportar_factura(self, total):
         print(f"Generando Factura B para {self.data['cliente']}")
         print(f"TOTAL FINAL (sin IVA, con descuento): ${total:.2f}")
+        return total  
