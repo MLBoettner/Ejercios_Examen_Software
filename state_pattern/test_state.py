@@ -4,7 +4,6 @@ from states.pending_state import PendingState
 from states.approved_state import ApprovedState
 from states.shipped_state import ShippedState
 
-
 class TestOrderStates(unittest.TestCase):
 
     def test_initial_state_is_pending(self):
